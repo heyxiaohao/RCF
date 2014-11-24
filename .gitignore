@@ -3,6 +3,8 @@
 *.lo
 *.o
 *.obj
+*.opensdf
+*.sdf
 
 # Precompiled Headers
 *.gch
