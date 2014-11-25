@@ -18,5 +18,8 @@
     <ClCompile Include="异步调用分发.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="D:\RCF-2.0.1.101\src\RCF\RCF.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
