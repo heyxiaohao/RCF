@@ -3,14 +3,12 @@
 */
 
 #include <iostream>
-#include <deque>
 using namespace std;
 
 #include <RCF/RCF.hpp>
-#include <RCF/RemoteCallContext.hpp>
 
 RCF_BEGIN(I_HelloWorld, "I_HelloWorld")
-RCF_METHOD_R1(int, Print, const string &)
+	RCF_METHOD_R1(int, Print, const string &)
 RCF_END(I_HelloWorld)
 
 class HelloWorld
