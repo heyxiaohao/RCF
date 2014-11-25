@@ -42,6 +42,16 @@ public:
 	void Print(const string &s)
 	{
 		RCF::RcfSession &session = RCF::getCurrentRcfSession();
+		// 可以取回客户端使用的协议
+		RCF::TransportProtocol protocol = session.getTransportProtocol();
+		if (protocol == RCF::Tp_Ntlm || protocol == RCF::Tp_Kerberos)
+		{
+			RCF::tstring clientUserName = session.getClientUsername();
+			// 模拟客户端 需要在RCF.hpp 添加 SspiFilter.hpp
+			RCF::SspiImpersonator impersonator(session);
+			// ...
+		}
+
 		HelloWorldSession &hwSession = session.getSessionObject<HelloWorldSession>(true);
 		++hwSession.m_CallCount;
 
@@ -79,8 +89,32 @@ int main()
 	// RCF::RcfServer server(RCF::TcpEndpoint("127.0.0.1", 50001));
 	// RCF::RcfServer server(RCF::TcpEndpoint("0.0.0.0", 50001)); // 监听所有地址，IPv4   RCF::RcfServer server(RCF::TcpEndpoint("::0", 50001)); // IPv6
 	// RCF::RcfServer server(RCF::UdpEndpoint("0.0.0.0", 50001)); // Udp  不能使用 twoway （request/response）
-	RCF::RcfServer server(RCF::Win32NamedPipeEndpoint(_T("Pipe"))); // 在windows平台使用windows命名管道， 在Unix平台使用本地套接字
+	// RCF::RcfServer server(RCF::Win32NamedPipeEndpoint(_T("Pipe"))); // 需要在头文件RCF.hpp 在windows平台使用windows命名管道， 在Unix平台使用本地套接字 
+
+	// 同时指定
+//	RCF::RcfServer server;
+//	server.addEndpoint(RCF::TcpEndpoint("0.0.0.0", 50001));
+//	server.addEndpoint(RCF::TcpEndpoint("::0", 50001)); // 在有些系统，此方式可同时监听IPv4和IPv6
+	// 或三种模式
+	RCF::RcfServer server;
+	server.addEndpoint(RCF::TcpEndpoint("::0", 50001));
+	server.addEndpoint(RCF::UdpEndpoint("::0", 50002));
+	server.addEndpoint(RCF::Win32NamedPipeEndpoint(_T("Pipe")));
+
+	// 可选的设置传输协议，对应的客户端需要设置其中一种协议
+	vector<RCF::TransportProtocol> protocols;
+	protocols.push_back(RCF::Tp_Ntlm);
+	protocols.push_back(RCF::Tp_Kerberos);
+	server.setSupportedTransportProtocols(protocols);
+
+	// RCF::RcfServer server(RCF::HttpEndpoint("0.0.0.0", 80)); // http
+	
+	// Https  需要在RCF.hpp 中添加 Win32Certificate.hpp
+	// RCF::RcfServer server(RCF::HttpsEndpoint("0.0.0.0", 443));
 	server.bind<I_HelloWorld>(helloWorld);  // 服务器绑定到接口实现对象
+	// RCF::CertificatePtr serverCertPtr(new RCF::PfxCertificate("path/to/certificate.p12", _T("password"), _T("CertificateName")));
+	// server.setCertificate(serverCertPtr);
+	
 	server.start();
 
 	cout << "任意键退出..." << endl;
@@ -88,3 +122,7 @@ int main()
 
 	return 0;
 }
+
+/************************************************************************/
+// RCF支持 NTLM Kerberos SSL 传输协议，前两者仅支持 windows, SSL支持所有平台
+/************************************************************************/
