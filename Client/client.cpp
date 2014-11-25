@@ -22,8 +22,11 @@ int main()
 	RCF::RcfInitDeinit rcfInit;
 	cout << "调用服务器端的 Print 函数" << endl;
 	try {
-		RcfClient<I_HelloWorld> client(RCF::TcpEndpoint(50001));
-
+		// RcfClient<I_HelloWorld> client(RCF::TcpEndpoint(50001));
+		// RcfClient<I_HelloWorld> client(RCF::TcpEndpoint("127.0.0.1", 50001));
+		// RcfClient<I_HelloWorld> client(RCF::TcpEndpoint("192.168.0.37", 50001)); // 如果服务器监听的是IPv6地址，则可以使用服务器名建立连接
+		// RcfClient<I_HelloWorld> client(RCF::UdpEndpoint("192.168.0.37", 50001)); // Udp
+		RcfClient<I_HelloWorld> client(RCF::Win32NamedPipeEndpoint(_T("Pipe")));
 		// 客户端代理
 		RCF::ClientStub &clientStub = client.getClientStub();
 		// 最重要的设置 连接超时时间和远程调用超时时间
