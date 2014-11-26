@@ -26,6 +26,7 @@ public:
 	int Print(const string &s)
 	{
 		
+
 	}
 private:
 	RCF::Mutex mPrintCallsMutex;
