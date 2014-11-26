@@ -6,7 +6,8 @@
 #include <iostream>
 using namespace std;
 
-#define RCF_FEATURE_FILETRANSFER 1// 开启下载功能  需要boost filesystem库支持
+//#define RCF_USE_BOOST_FILESYSTEM // 开启下载功能需要在属性 预处理器中设置  
+// 需要首先编译filesystem库 boost filesystem库支持
 #include <RCF/RCF.hpp>
 #include <RCF/FileDownload.hpp>
 
@@ -20,7 +21,7 @@ public:
 	void PrintAndDownload(const string &s, RCF::FileDownload fileDownload)
 	{
 		cout << "服务器: " << s << endl;
-		fileDownload = RCF::FileDownload("G:/RCF/Client/client.cpp");
+		fileDownload = RCF::FileDownload("E:/works/RCF/Client/client.cpp");
 	}
 };
 
@@ -43,7 +44,8 @@ int main()
 		// 获取文件
 		RCF::FileManifest &downloadManifest = fileDownload.getManifest();
 		cout << "下载文件存放路径：" << pathToDownload << endl;
-		cout << "文件大小：" << downloadManifest.mFiles.size() << endl;
+		cout << "文件个数：" << downloadManifest.mFiles.size() << endl;
+		cout << "第一个文件大小：" << downloadManifest.mFiles[0].mFileSize << endl;
 
 		cout << "任意键退出..." << endl;
 		cin.get();
@@ -51,6 +53,9 @@ int main()
 	catch (RCF::Exception &e)
 	{
 		cout << e.getErrorString() << endl;
+		cout << "任意键退出..." << endl;
+		cin.get();
 	}
+
 	return 0;
 }
