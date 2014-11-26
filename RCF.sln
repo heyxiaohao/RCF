@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "上传", "上传\上传.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProtocolBuffers", "ProtocolBuffers\ProtocolBuffers.vcxproj", "{BCDA9E23-696B-4227-B9A6-10F8EB1D91C8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsonRPC", "JsonRPC\JsonRPC.vcxproj", "{C6108442-2C4B-4A4A-8C4C-601DA2B4CDEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -89,6 +91,10 @@ Global
 		{BCDA9E23-696B-4227-B9A6-10F8EB1D91C8}.Debug|Win32.Build.0 = Debug|Win32
 		{BCDA9E23-696B-4227-B9A6-10F8EB1D91C8}.Release|Win32.ActiveCfg = Release|Win32
 		{BCDA9E23-696B-4227-B9A6-10F8EB1D91C8}.Release|Win32.Build.0 = Release|Win32
+		{C6108442-2C4B-4A4A-8C4C-601DA2B4CDEE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C6108442-2C4B-4A4A-8C4C-601DA2B4CDEE}.Debug|Win32.Build.0 = Debug|Win32
+		{C6108442-2C4B-4A4A-8C4C-601DA2B4CDEE}.Release|Win32.ActiveCfg = Release|Win32
+		{C6108442-2C4B-4A4A-8C4C-601DA2B4CDEE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
