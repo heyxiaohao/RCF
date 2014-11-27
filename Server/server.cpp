@@ -91,21 +91,20 @@ int main()
 	// RCF::RcfServer server(RCF::UdpEndpoint("0.0.0.0", 50001)); // Udp  不能使用 twoway （request/response）
 	// RCF::RcfServer server(RCF::Win32NamedPipeEndpoint(_T("Pipe"))); // 需要在头文件RCF.hpp 在windows平台使用windows命名管道， 在Unix平台使用本地套接字 
 
+	RCF::RcfServer server;
 	// 同时指定
-//	RCF::RcfServer server;
-//	server.addEndpoint(RCF::TcpEndpoint("0.0.0.0", 50001));
+	server.addEndpoint(RCF::TcpEndpoint("0.0.0.0", 50001));
 //	server.addEndpoint(RCF::TcpEndpoint("::0", 50001)); // 在有些系统，此方式可同时监听IPv4和IPv6
 	// 或三种模式
-	RCF::RcfServer server;
 	server.addEndpoint(RCF::TcpEndpoint("::0", 50001));
 	server.addEndpoint(RCF::UdpEndpoint("::0", 50002));
 	server.addEndpoint(RCF::Win32NamedPipeEndpoint(_T("Pipe")));
 
 	// 可选的设置传输协议，对应的客户端需要设置其中一种协议
-	vector<RCF::TransportProtocol> protocols;
-	protocols.push_back(RCF::Tp_Ntlm);
-	protocols.push_back(RCF::Tp_Kerberos);
-	server.setSupportedTransportProtocols(protocols);
+// 	vector<RCF::TransportProtocol> protocols;
+// 	protocols.push_back(RCF::Tp_Ntlm);
+// 	protocols.push_back(RCF::Tp_Kerberos);
+// 	server.setSupportedTransportProtocols(protocols);
 
 	// RCF::RcfServer server(RCF::HttpEndpoint("0.0.0.0", 80)); // http
 	
