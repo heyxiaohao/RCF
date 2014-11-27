@@ -2,18 +2,7 @@
 RcfSession 可以获取当前客户端连接的信息
 */
 
-/*
-底层与服务器的连接或取消连接一般是自动的，也可以手动
-client.getClientStub().connect();
-client.getClientStub().disconnect();
-可以将一个客户端的底层协议移动到另一个客户端
-ClientStub::releaseTransport()    ClientStub::setTransport();
-应用：在不同的客户端实例使用同一个底层传输协议
-*/
-
-
 #include <iostream>
-
 using namespace std;
 
 #include <RCF/RCF.hpp>

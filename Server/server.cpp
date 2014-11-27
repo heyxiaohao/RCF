@@ -93,6 +93,8 @@ int main()
 	// RCF::RcfServer server(RCF::TcpEndpoint("0.0.0.0", 50001)); // 监听所有地址，IPv4   RCF::RcfServer server(RCF::TcpEndpoint("::0", 50001)); // IPv6
 	// RCF::RcfServer server(RCF::UdpEndpoint("0.0.0.0", 50001)); // Udp  不能使用 twoway （request/response）
 	// RCF::RcfServer server(RCF::Win32NamedPipeEndpoint(_T("Pipe"))); // 需要在头文件RCF.hpp 在windows平台使用windows命名管道， 在Unix平台使用本地套接字 
+	// RCF::RcfServer server(RCF::TcpEndpoint(0)); // 随机选择端口号
+	// int server.getIpServerTransport().getPort(); // 获取端口号
 
 	RCF::RcfServer server;
 	// 同时指定
