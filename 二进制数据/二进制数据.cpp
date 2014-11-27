@@ -52,13 +52,14 @@ int main()
 
 		RCF::RcfServer server(RCF::TcpEndpoint(50001));
 		server.bind<I_HelloWorld>(helloWorld);
+		server.getServerTransport().setMaxIncomingMessageLength(6000 * 1024);
 		server.start();
 
-		RCF::setDefaultMaxMessageLength(600 * 1024); // 600k
+		RCF::setDefaultMaxMessageLength(6000 * 1024); // 600k
 
 		RcfClient<I_HelloWorld> client(RCF::TcpEndpoint(50001));
 		// 创建500k的数据
-		RCF::ByteBuffer byteBuffer(500 * 1024);
+		RCF::ByteBuffer byteBuffer(5000 * 1024);
 		vector<char> vecChar;
 		string str;
 		for (size_t i = 0; i < byteBuffer.getLength(); ++i)
