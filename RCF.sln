@@ -65,6 +65,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "序列化", "序列化\序�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "复杂容器", "复杂容器\复杂容器.vcxproj", "{C1B48345-3B24-4A88-9A12-A4193D79BBFF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "传输层", "传输层", "{EA6050F2-81BA-4B73-ACF7-25B1C24361BE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "传输层", "传输层\传输层.vcxproj", "{66CDFA40-1CD2-4A42-8F00-F8271B8FAE7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -167,6 +171,10 @@ Global
 		{C1B48345-3B24-4A88-9A12-A4193D79BBFF}.Debug|Win32.Build.0 = Debug|Win32
 		{C1B48345-3B24-4A88-9A12-A4193D79BBFF}.Release|Win32.ActiveCfg = Release|Win32
 		{C1B48345-3B24-4A88-9A12-A4193D79BBFF}.Release|Win32.Build.0 = Release|Win32
+		{66CDFA40-1CD2-4A42-8F00-F8271B8FAE7C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{66CDFA40-1CD2-4A42-8F00-F8271B8FAE7C}.Debug|Win32.Build.0 = Debug|Win32
+		{66CDFA40-1CD2-4A42-8F00-F8271B8FAE7C}.Release|Win32.ActiveCfg = Release|Win32
+		{66CDFA40-1CD2-4A42-8F00-F8271B8FAE7C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -192,5 +200,6 @@ Global
 		{827887A6-FE7C-4CFD-A7F3-7C6E036B2131} = {FC0D20C2-5ADA-4B57-B781-BC68E6CCD72E}
 		{17A90CE9-053E-458A-849D-4708A7F986D0} = {FC0D20C2-5ADA-4B57-B781-BC68E6CCD72E}
 		{C1B48345-3B24-4A88-9A12-A4193D79BBFF} = {FC0D20C2-5ADA-4B57-B781-BC68E6CCD72E}
+		{66CDFA40-1CD2-4A42-8F00-F8271B8FAE7C} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
 	EndGlobalSection
 EndGlobal
