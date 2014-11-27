@@ -1,4 +1,6 @@
 /*
+服务器端分发 客户端的远程调用 响应
+
 需要添加 RCF/include   boost/include
 工程需要引入 RCF.cpp
 如果是win32  需要在项目属性定义 WIN32_LEAN_AND_MEAN
@@ -41,6 +43,7 @@ class HelloWorld
 public:
 	void Print(const string &s)
 	{
+		// 每一个客户端都有自己的session，生命期为底层协议的生命期
 		RCF::RcfSession &session = RCF::getCurrentRcfSession();
 		// 可以取回客户端使用的协议
 		RCF::TransportProtocol protocol = session.getTransportProtocol();
@@ -119,6 +122,7 @@ int main()
 	cout << "任意键退出..." << endl;
 	cin.get();
 
+	server.stop(); // server在超出作用域则自动stop
 	return 0;
 }
 

@@ -22,6 +22,7 @@ int main()
 	RCF::RcfInitDeinit rcfInit;
 	cout << "调用服务器端的 Print 函数" << endl;
 	try {
+		// 客户端可复制，但是每一个客户端具有自己的连接
 		// RcfClient<I_HelloWorld> client(RCF::TcpEndpoint(50001));
 		// RcfClient<I_HelloWorld> client(RCF::TcpEndpoint("127.0.0.1", 50001));
 		RcfClient<I_HelloWorld> client(RCF::TcpEndpoint("wangh", 50001)); // 如果服务器监听的是IPv6地址，则可以使用服务器名建立连接

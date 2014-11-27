@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="获取底层传输协议.cpp">
+    <ClCompile Include="当前会话信息.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="D:\RCF-2.0.1.101\src\RCF\RCF.cpp">

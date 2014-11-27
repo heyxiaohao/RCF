@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{71BCA314-917A-4AE8-A30D-DB5D4E3BFF1F}</ProjectGuid>
+    <ProjectGuid>{44663140-6461-43D4-8838-B28FA7F0A61C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>获取底层传输协议</RootNamespace>
+    <RootNamespace>绑定实现类</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -80,7 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="D:\RCF-2.0.1.101\src\RCF\RCF.cpp" />
-    <ClCompile Include="获取底层传输协议.cpp" />
+    <ClCompile Include="绑定实现类.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
