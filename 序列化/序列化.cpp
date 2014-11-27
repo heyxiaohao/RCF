@@ -5,6 +5,14 @@ RCF ÔÚ SF ÖÐÌá¹©ÐòÁÐ»¯¿ò¼Ü£¬Ê¹ÓÃ´Ë¿ò¼Ü¿ÉÒÔ×Ô¶¯ÐòÁÐ»¯C++µÄÊý¾ÝÀàÐÍ£¬ÒÔ¼°×Ô¶¨ÒåÀàÐ
 Ò»°ã£¬Èç¹ûC++µÄÀàÐÍ¶¨ÒåÎª <xyz> »ò BoostµÄÀàÐÍ <boost/xyz.hpp>£¬ÔòÏà¶ÔÓ¦µÄÐòÁÐ»¯¶¨Òå <SF/xyz.hpp>
 C++µÄenmuÀàÐÍ×Ô¶¯ÐòÁÐ»¯Îªint   C++11µÄenum class ÀàÐÍ ÐèÒª¶¨Òåºê
 
+µ±ÔÚ²»Í¬µÄÆ½Ì¨ÉÏ´«ÊäÊý¾ÝÊ±£¬ÓÐÇ±ÔÚµÄ´íÎó Èç: size_t 32Î»±àÒëÆ÷Îª32Î»£¬64Î»±àÒëÆ÷Îª64Î»
+ÐèÒª¿ÉÒÆÖ²ÐÔ£¬¿ÉÊ¹ÓÃ <boost/cstdint.hpp>
+boost::int16_t
+boost::uint16_t
+boost::int32_t
+boost::uint32_t
+boost::int64_t
+boost::uint64_t
 */
 
 
