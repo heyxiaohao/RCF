@@ -90,7 +90,7 @@ int main()
 	HelloWorld helloWorld;
 	// RCF::RcfServer server(RCF::TcpEndpoint(50001)); // 如果不提供地址，则默认使用127.0.0.1
 	// RCF::RcfServer server(RCF::TcpEndpoint("127.0.0.1", 50001));
-	// RCF::RcfServer server(RCF::TcpEndpoint("0.0.0.0", 50001)); // 监听所有地址，IPv4   RCF::RcfServer server(RCF::TcpEndpoint("::0", 50001)); // IPv6
+	// RCF::RcfServer server(RCF::TcpEndpoint("0.0.0.0", 50001)); // 监听所有地址，IPv4   RCF::RcfServer server(RCF::TcpEndpoint("::0", 50001)); // IPv6 需要定义宏 RCF_USE_IPV6
 	// RCF::RcfServer server(RCF::UdpEndpoint("0.0.0.0", 50001)); // Udp  不能使用 twoway （request/response）
 	// RCF::RcfServer server(RCF::Win32NamedPipeEndpoint(_T("Pipe"))); // 需要在头文件RCF.hpp 在windows平台使用windows命名管道， 在Unix平台使用本地套接字 
 	// RCF::RcfServer server(RCF::TcpEndpoint(0)); // 随机选择端口号
