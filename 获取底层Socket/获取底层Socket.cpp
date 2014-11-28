@@ -34,7 +34,7 @@ int main()
 {
 	try{
 		RCF::init();
-
+	
 		RCF::RcfServer server;
 		server.addEndpoint(RCF::TcpEndpoint("0.0.0.0", 50001));
 		server.addEndpoint(RCF::TcpEndpoint("::0", 50001));
