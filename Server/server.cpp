@@ -13,6 +13,7 @@ using namespace std;
 
 #include <RCF/RCF.hpp>
 #include <SF/vector.hpp> // vector的序列化实现类
+#include <RCF/Win32NamedPipeEndpoint.hpp>
 /************************************************************************/
 // 接口定义
 /************************************************************************/

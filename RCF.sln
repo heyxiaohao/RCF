@@ -89,6 +89,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UDP地址共享", "UDP地�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UDP服务器发现", "UDP服务器发现\UDP服务器发现.vcxproj", "{8B3C0C39-0E47-45A7-A480-D8C747C4F90F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Win32命名管道", "Win32命名管道\Win32命名管道.vcxproj", "{9C969650-B9A3-4955-9D59-326E19B4670D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -235,6 +237,10 @@ Global
 		{8B3C0C39-0E47-45A7-A480-D8C747C4F90F}.Debug|Win32.Build.0 = Debug|Win32
 		{8B3C0C39-0E47-45A7-A480-D8C747C4F90F}.Release|Win32.ActiveCfg = Release|Win32
 		{8B3C0C39-0E47-45A7-A480-D8C747C4F90F}.Release|Win32.Build.0 = Release|Win32
+		{9C969650-B9A3-4955-9D59-326E19B4670D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9C969650-B9A3-4955-9D59-326E19B4670D}.Debug|Win32.Build.0 = Debug|Win32
+		{9C969650-B9A3-4955-9D59-326E19B4670D}.Release|Win32.ActiveCfg = Release|Win32
+		{9C969650-B9A3-4955-9D59-326E19B4670D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -271,5 +277,6 @@ Global
 		{2D49EE39-EF01-4549-ABAD-10653916D506} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
 		{36EF64D6-C65C-42CE-BF5F-B918F3C11CB9} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
 		{8B3C0C39-0E47-45A7-A480-D8C747C4F90F} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
+		{9C969650-B9A3-4955-9D59-326E19B4670D} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
 	EndGlobalSection
 EndGlobal
