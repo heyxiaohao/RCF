@@ -79,6 +79,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IP过滤规则", "IP过滤�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IPv4_IPv6", "IPv4_IPv6\IPv4_IPv6.vcxproj", "{5FE7FC2C-D783-46F8-97EE-4BD5559016CF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "客户端指定本地IP接口", "客户端指定本地IP接口\客户端指定本地IP接口.vcxproj", "{4F6D3C4C-245C-4DB4-8AA3-AFD752125D9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -205,6 +207,10 @@ Global
 		{5FE7FC2C-D783-46F8-97EE-4BD5559016CF}.Debug|Win32.Build.0 = Debug|Win32
 		{5FE7FC2C-D783-46F8-97EE-4BD5559016CF}.Release|Win32.ActiveCfg = Release|Win32
 		{5FE7FC2C-D783-46F8-97EE-4BD5559016CF}.Release|Win32.Build.0 = Release|Win32
+		{4F6D3C4C-245C-4DB4-8AA3-AFD752125D9C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4F6D3C4C-245C-4DB4-8AA3-AFD752125D9C}.Debug|Win32.Build.0 = Debug|Win32
+		{4F6D3C4C-245C-4DB4-8AA3-AFD752125D9C}.Release|Win32.ActiveCfg = Release|Win32
+		{4F6D3C4C-245C-4DB4-8AA3-AFD752125D9C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -236,5 +242,6 @@ Global
 		{30451A8C-D3C7-40CF-AA43-C4476DBC8D7A} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
 		{F3A228C3-1CA4-4566-9EB7-51BDE01C0DD0} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
 		{5FE7FC2C-D783-46F8-97EE-4BD5559016CF} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
+		{4F6D3C4C-245C-4DB4-8AA3-AFD752125D9C} = {EA6050F2-81BA-4B73-ACF7-25B1C24361BE}
 	EndGlobalSection
 EndGlobal
