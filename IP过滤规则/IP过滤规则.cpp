@@ -25,6 +25,7 @@ int main()
 	try{
 		RCF::init();
 
+
 		RCF::RcfServer server(RCF::TcpEndpoint(50001));
 		HelloWorld helloWorld;
 		server.bind<I_HelloWorld>(helloWorld);
