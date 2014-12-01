@@ -1,8 +1,10 @@
 /*
-
+配置允许或限制的客户端IP连接
+IPv6的限制规则怎么设置？？？
 */
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 #include <RCF/RCF.hpp>
@@ -27,6 +29,21 @@ int main()
 
 
 		RCF::RcfServer server(RCF::TcpEndpoint(50001));
+		RCF::IpServerTransport &ipTransport = server.getIpServerTransport();
+		// 设置允许的客户端IP
+		vector<RCF::IpRule> ipAllowRules;
+		// 匹配
+		ipAllowRules.push_back(RCF::IpRule(RCF::IpAddress("11.22.33.0"), 24)); // 24表示24位匹配
+		ipAllowRules.push_back(RCF::IpRule(RCF::IpAddress("127.0.0.0"), 24));
+		ipAllowRules.push_back(RCF::IpRule(RCF::IpAddress("192.168.0.0"), 16));
+		ipTransport.setAllowIps(ipAllowRules);
+
+		// 设置拒绝的客户端IP
+		vector<RCF::IpRule> ipDenyRules;
+		ipDenyRules.push_back(RCF::IpRule(RCF::IpAddress("11.0.0.0"), 8));
+		ipDenyRules.push_back(RCF::IpRule(RCF::IpAddress("12.22.0.0"), 16));
+		ipTransport.setDenyIps(ipDenyRules);
+
 		HelloWorld helloWorld;
 		server.bind<I_HelloWorld>(helloWorld);
 		server.start();

@@ -1,0 +1,10 @@
+
+
+RCF提供两种SSL传输协议实现，跨平台的OpenSSL 和 windows平台Schannel
+RCF_USE_OPENSSL开启OpenSSL
+通过在服务端和客户端调用 设置 SSL 类型
+RcfServer::setSslImplementation()
+ClientStub::setSslImplementation()
+或者整体设置  RCF::setSslImplementation()
+
+服务器使用证书对客户端进行身份验证

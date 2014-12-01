@@ -55,7 +55,7 @@ int main()
 		server.getServerTransport().setMaxIncomingMessageLength(6000 * 1024);
 		server.start();
 
-		RCF::setDefaultMaxMessageLength(6000 * 1024); // 600k
+		RCF::setDefaultMaxMessageLength(6000 * 1024); // 600k  服务器端默认接受大小为1Mb
 
 		RcfClient<I_HelloWorld> client(RCF::TcpEndpoint(50001));
 		// 创建500k的数据
