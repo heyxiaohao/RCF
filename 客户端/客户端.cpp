@@ -11,6 +11,10 @@ RCF_BEGIN(I_HelloWorld, "I_HelloWorld")
 	RCF_METHOD_V1(void, Print, const string &)
 RCF_END(I_HelloWorld)
 
+RCF_BEGIN(I_IdentifyClient, "I_IdentifyClient")
+	RCF_METHOD_V1(void, SetClientName, const string &)
+RCF_END(I_IdentifyClient)
+
 class HelloWorld
 {
 public:
@@ -30,8 +34,9 @@ int main()
 		callbackServer.bind<I_HelloWorld>(helloWorld);
 		callbackServer.start();
 
-		RcfClient<I_HelloWorld> client(RCF::TcpEndpoint(50001));
+		RcfClient<I_IdentifyClient> client(RCF::TcpEndpoint(50004));
 		// 创建回调
+		client.SetClientName("wangh");
 		RCF::createCallbackConnection(client, callbackServer);
 		cout << "任意键退出..." << endl;
 		cin.get();
@@ -39,6 +44,8 @@ int main()
 	catch (RCF::Exception &e)
 	{
 		cout << e.getErrorString() << endl;
+		cout << "任意键退出..." << endl;
+		cin.get();
 	}
 	return 0;
 }
