@@ -22,13 +22,10 @@ public:
 	}
 };
 
-// 订阅方断开连接回调函数
+// 发布方退出，订阅方断开连接回调函数
 void onSubscriptionDisconnected(RCF::RcfSession &session)
 {
 	cout << "断开连接" << endl;
-
-	cout << "任意键退出..." << endl;
-	cin.get();
 }
 
 int main()
@@ -53,8 +50,6 @@ int main()
 		cin.get();
 		// 关闭
 		subPtr->close();
-		cin.get();
-
 	}
 	catch (RCF::Exception &e)
 	{

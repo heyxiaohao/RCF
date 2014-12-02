@@ -22,6 +22,19 @@ RCF_END(I_HelloWorld)
 //	}
 //};
 
+// 访问控制
+bool onSubscriberConnect(RCF::RcfSession &session, const string &topicName)
+{
+	cout << "订阅方连接" << topicName << ":" << session.getClientAddress().string() << endl;
+	return true;
+}
+
+void onSubscriberDisconnect(RCF::RcfSession &session, const string &topicName)
+{
+	// 断开连接 session 不能使用？？？
+	cout << "订阅方断开连接" << topicName << ":" << session.getClientAddress().string() << endl;
+}
+
 int main()
 {
 	RCF::init();
@@ -31,9 +44,12 @@ int main()
 		pubServer.start();
 		typedef boost::shared_ptr<RCF::Publisher<I_HelloWorld> > HelloWorldPubPtr;
 		// 创建默认名称的Publisher(运行时标示"I_HelloWorld"
-		HelloWorldPubPtr pubPtr = pubServer.createPublisher<I_HelloWorld>();
-		// 手动设置主题名
 		RCF::PublisherParms pubParms;
+		pubParms.setOnSubscriberConnect(&onSubscriberConnect);
+		pubParms.setOnSubscriberDisconnect(&onSubscriberDisconnect);
+		HelloWorldPubPtr pubPtr = pubServer.createPublisher<I_HelloWorld>(pubParms);
+		// 手动设置主题名
+		// RCF::PublisherParms pubParms;
 		pubParms.setTopicName("HelloWorld_Topic_1");
 		HelloWorldPubPtr pub1Ptr = pubServer.createPublisher<I_HelloWorld>(pubParms);
 
