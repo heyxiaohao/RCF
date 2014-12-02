@@ -1,6 +1,7 @@
 /*
 下载： RCF::FileDownload 需要作为远程方法的参数来实现
 服务端默认是不开启传输功能，需要明确激活
+如果指定为目录，则目录下所有文件都将传输
 */
 
 #include <iostream>
@@ -21,9 +22,30 @@ public:
 	void PrintAndDownload(const string &s, RCF::FileDownload fileDownload)
 	{
 		cout << "服务器: " << s << endl;
-		fileDownload = RCF::FileDownload("E:/works/RCF/Client/client.cpp");
+		fileDownload = RCF::FileDownload("E:/works/RCF/RCF.sdf");
 	}
 };
+
+void onFileTransferProgress(const RCF::FileTransferProgress &progress)
+{
+	// 使用boost库的进度显示
+
+	//cout << "文件大小： " << progress.mBytesTotalToTransfer << endl;
+	//cout << "已经下载的大小: " << progress.mBytesTransferredSoFar << endl;
+	//cout << "服务器带宽限制: " << progress.mServerLimitBps << endl;
+}
+
+// 服务器端监视下载信息，可抛出异常中断传输
+void onServerFileDown(RCF::RcfSession &session, const RCF::FileDownloadInfo &downloadInfo)
+{
+	// 哪个文件在传输
+	const RCF::FileManifest &fileManifest = downloadInfo.mManifest;
+	// 传输进度
+	boost::uint32_t currentFile = downloadInfo.mCurrentFile; // 当前第一个文件
+	boost::uint64_t currentFilePos = downloadInfo.mCurrentPos; // 已上传的大小
+	cout << currentFile << ":" << currentFilePos << endl;
+	// 抛出异常，中断传输
+}
 
 int main()
 {
@@ -33,11 +55,17 @@ int main()
 		RCF::RcfServer server((RCF::TcpEndpoint(50001)));
 		HelloWorld helloWorld;
 		server.bind<I_HelloWorld>(helloWorld);
+		server.setOnFileDownloadProgress(&onServerFileDown);
 		server.start();
 
 		RcfClient<I_HelloWorld> client(RCF::TcpEndpoint(50001));
 		RCF::FileDownload fileDownload(".");
-		// 下载文件
+		// 下载文件，如果下载过程中断开连接，则可以再次调用以继续下载，
+		client.getClientStub().setAutoReconnect(true);
+		// 可设置下载进度回调显示 
+		client.getClientStub().setFileProgressCallback(&onFileTransferProgress);
+		// 可对文件传输进行加密
+		client.getClientStub().setTransportProtocol(RCF::Tp_Ntlm);
 		client.PrintAndDownload("wang", fileDownload);
 		// 获取下载文件存放路径
 		string pathToDownload = fileDownload.getLocalPath();

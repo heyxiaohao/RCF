@@ -1,5 +1,6 @@
 /*
 当需要发送大量的二进制数据时，使用RCF::ByteBuffer 比 string 和 vector在序列化和列集更有效，特别是在两端都没有数据的拷贝
+ByteBuffer当超过 连接的最大限制，则调用失败
 */
 
 

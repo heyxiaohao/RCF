@@ -1,0 +1,33 @@
+
+版本修改
+	RCF_BEGIN(I_Calculator, "I_Calculator")
+		RCF_METHOD_R2(double,  add, double, double)
+		RCF_METHOD_R2(double,  subtract, double, double)
+	RCF_END(I_Calculator)
+
+1 添加接口：只能添加到以前存在的接口之后
+	RCF_BEGIN(I_Calculator, "I_Calculator")
+		RCF_METHOD_R2(double,  add, double, double)
+		RCF_METHOD_R2(double,  subtract, double, double)
+		RCF_METHOD_R2(double,  multiply, double, double)
+	RCF_END(I_Calculator)
+2 删除接口：需要占位
+	RCF_BEGIN(I_Calculator, "I_Calculator")
+		RCF_METHOD_PLACEHOLDER()
+		RCF_METHOD_R2(double,  subtract, double, double)
+	RCF_END(I_Calculator)
+3 添加参数：服务端会将额外的参数置0  // 只能对从右至左的增删参数
+	RCF_BEGIN(I_Calculator, "I_Calculator")
+		RCF_METHOD_R3(double,  add, double, double, double)
+		RCF_METHOD_R2(double,  subtract, double, double)
+	RCF_END(I_Calculator)
+4 删除参数：服务端忽略多余的参数
+	RCF_BEGIN(I_Calculator, "I_Calculator")
+		RCF_METHOD_R1(double,  add, double)
+		RCF_METHOD_R2(double,  subtract, double, double)
+	RCF_END(I_Calculator)
+5 重命名接口：只要运行时标识不变，编译时标识可改变
+	RCF_BEGIN(I_CalculatorService, "I_Calculator")
+		RCF_METHOD_R2(double,  add, double, double)
+		RCF_METHOD_R2(double,  subtract, double, double)
+	RCF_END(I_CalculatorService)
