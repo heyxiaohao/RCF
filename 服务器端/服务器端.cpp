@@ -76,6 +76,8 @@ int main()
 		for (size_t i = 0; i < clients.size(); ++i)
 		{
 			HelloWorldPtr client = clients["wangh"];
+			// 如果需要传输协议，则需要明确的指定
+			client->getClientStub().setTransportProtocol(RCF::Tp_Ntlm);
 			//HelloWorldPtr client = clients[i];
 			client->Print("hello网");
 		}
