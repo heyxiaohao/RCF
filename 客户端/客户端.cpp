@@ -29,7 +29,7 @@ int main()
 	RCF::init();
 	try
 	{
-		RCF::RcfServer callbackServer((RCF::TcpEndpoint())); // 为什么需要空的 还要加两层括号
+		RCF::RcfServer callbackServer((RCF::TcpEndpoint())); // 为什么需要空的 加两层括号是为了与c兼容，因为编译器解释RCF::TcpEndpoint()为函数调用
 		HelloWorld helloWorld;
 		callbackServer.bind<I_HelloWorld>(helloWorld);
 		callbackServer.start();
